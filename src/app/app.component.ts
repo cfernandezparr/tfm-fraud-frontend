@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -7,4 +7,11 @@ import { RouterOutlet } from '@angular/router';
   imports: [RouterOutlet],
   templateUrl: './app.component.html'
 })
-export class AppComponent {}
+export class AppComponent implements OnInit {
+
+  ngOnInit(): void {
+    setInterval(() => {
+      fetch('https://tfm-fraud-backend.onrender.com/transactions/ping');
+    }, 10 * 60 * 1000); // cada 10 minutos
+  }
+}
