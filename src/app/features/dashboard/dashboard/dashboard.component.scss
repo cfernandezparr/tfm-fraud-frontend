@@ -1,0 +1,169 @@
+.dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* HEADER */
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.dashboard-header h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.logout-btn {
+  background: transparent;
+  border: 1px solid #e0e0e0;
+  padding: 6px 14px;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #555;
+  transition: all 0.2s ease;
+}
+
+.logout-btn:hover {
+  background-color: #fdecea;
+  border-color: #e57373;
+  color: #c62828;
+}
+
+/* MÉTRICAS */
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.metric-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.metric-card.warning {
+  border-left: 4px solid #e53935;
+}
+
+.metric-card h4 {
+  margin: 0 0 8px;
+  font-size: 15px;
+  color: #555;
+}
+
+.metric-value {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+/* BARRA DE RIESGO */
+
+.risk-bar {
+  margin: 24px 0;
+}
+
+.bar {
+  width: 100%;
+  height: 14px;
+  background: #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background: #4caf50;
+}
+
+/* GRÁFICO CIRCULAR */
+
+.chart {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 32px;
+}
+
+.pie {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+}
+
+.legend p {
+  margin: 6px 0;
+  font-size: 14px;
+}
+
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+
+.dot.red {
+  background: #f44336;
+}
+
+.dot.green {
+  background: #4caf50;
+}
+
+/* TABLA */
+
+.table-section h2 {
+  margin-bottom: 12px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  background: #f7f7f7;
+}
+
+.ok {
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+.bad {
+  color: #c62828;
+  font-weight: 600;
+}
+
+.reject-btn {
+  padding: 4px 10px;
+  font-size: 13px;
+  border-radius: 4px;
+  border: 1px solid #c62828;
+  background: transparent;
+  color: #c62828;
+  cursor: pointer;
+}
+
+.reject-btn:hover {
+  background: #c62828;
+  color: #fff;
+}

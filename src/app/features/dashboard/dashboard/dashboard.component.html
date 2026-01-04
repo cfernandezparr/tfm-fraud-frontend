@@ -1,0 +1,101 @@
+<div class="dashboard-container">
+
+  <!-- HEADER -->
+  <header class="dashboard-header">
+    <h1>Dashboard</h1>
+
+    <button class="logout-btn" (click)="logout()">
+      Cerrar sesión
+    </button>
+  </header>
+
+  <!-- MÉTRICAS -->
+  <section class="metrics">
+    <div class="metric-card">
+      <h4>Total operaciones</h4>
+      <p class="metric-value">{{ totalOperations }}</p>
+    </div>
+
+    <div class="metric-card warning">
+      <h4>Operaciones sospechosas</h4>
+      <p class="metric-value">{{ suspiciousOperations }}</p>
+    </div>
+
+    <div class="metric-card">
+      <h4>Riesgo global</h4>
+      <p class="metric-value">{{ riskPercentage }}%</p>
+    </div>
+  </section>
+
+  <!-- BARRA DE RIESGO -->
+  <section class="risk-bar">
+    <div class="bar">
+      <div
+        class="bar-fill"
+        [style.width.%]="riskPercentage">
+      </div>
+    </div>
+  </section>
+
+  <!-- GRÁFICO CIRCULAR -->
+  <section class="chart">
+    <div
+      class="pie"
+      [style.background]="
+        'conic-gradient(#f44336 0deg ' +
+        suspiciousAngle +
+        'deg, #4caf50 ' +
+        suspiciousAngle +
+        'deg 360deg)'
+      ">
+    </div>
+
+    <div class="legend">
+      <p><span class="dot red"></span> Sospechosas ({{ riskPercentage }}%)</p>
+      <p><span class="dot green"></span> Normales ({{ normalPercentage }}%)</p>
+    </div>
+  </section>
+
+  <!-- TABLA -->
+  <section class="table-section">
+    <h2>Operaciones</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Comercio</th>
+          <th>Importe (€)</th>
+          <th>Prob. fraude</th>
+          <th>Estado</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let op of operations">
+          <td>{{ op.id }}</td>
+          <td>{{ op.merchant }}</td>
+          <td>{{ op.amount | number:'1.2-2' }}</td>
+          <td>{{ (op.fraudProbability * 100) | number:'1.0-2' }} %</td>
+          <td>
+            <span
+              [class.ok]="!isSuspicious(op)"
+              [class.bad]="isSuspicious(op)">
+              {{ isSuspicious(op) ? 'SUSPICIOUS' : 'OK' }}
+            </span>
+          </td>
+          <td>
+            <button
+              *ngIf="isSuspicious(op) && canReject()"
+              class="reject-btn"
+              (click)="rejectOperation(op.id)">
+              Rechazar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+</div>

@@ -1,1 +1,132 @@
-/* You can add global styles to this file, and also import other style files */
+/* ===== RESET BÁSICO ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f5f5f5;
+  color: #222;
+}
+
+/* ===== TÍTULOS ===== */
+h2, h3 {
+  margin-top: 0;
+  color: #1f2937;
+}
+
+/* ===== BOTONES (GENÉRICO) ===== */
+button {
+  padding: 6px 12px;
+  border: 1px solid #444;
+  background-color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: #eee;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ===== LINKS ===== */
+a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ===== FORMULARIOS ===== */
+input {
+  padding: 6px;
+  margin-bottom: 8px;
+  width: 250px;
+  border: 1px solid #aaa;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* ===== CONTENEDORES ===== */
+hr {
+  margin: 20px 0;
+}
+
+/* =========================
+   AUTH PAGES (LOGIN / REGISTER)
+   ========================= */
+
+.auth-container {
+  max-width: 400px;
+  margin: 60px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.auth-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.auth-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-container input {
+  width: 100%;
+}
+
+/* ===== BOTONES AUTH ===== */
+.auth-container button {
+  margin-top: 12px;
+  padding: 10px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+}
+
+/* Login (azul) */
+.auth-container button {
+  background-color: #1976d2;
+}
+
+.auth-container button:hover {
+  background-color: #1565c0;
+}
+
+/* Register (verde) */
+.auth-container.register button {
+  background-color: #2e7d32;
+}
+
+.auth-container.register button:hover {
+  background-color: #1b5e20;
+}
+
+/* ===== MENSAJES ===== */
+.auth-error {
+  color: #c62828;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.auth-link {
+  margin-top: 16px;
+  text-align: center;
+}
